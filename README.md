@@ -73,8 +73,8 @@ defmodule MyModule do
 end
 ```
 
-You can also rename the function using the regular `Kernel.defdelegate/2`
-option:
+You can also rename the function using the `:as` option, just like
+`Kernel.defdelegate/2`.
 
 ```elixir
 defdelegate better_name(arg1, arg2), to: MyModule.Internal, as: :my_func
