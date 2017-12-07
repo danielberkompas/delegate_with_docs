@@ -6,3 +6,4 @@ otp_release:
 script:
   - MIX_ENV=test mix deps.get
   - mix test
+  - mix docs
