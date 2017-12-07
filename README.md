@@ -35,19 +35,21 @@ In this example, we want to exclude `MyModule.Internal` from our
 documentation because it's an internal module and may change. However, we
 still want to expose one of its functions as part of our public API.
 
-    defmodule MyModule.Internal do
-      @moduledoc false
+```elixir
+defmodule MyModule.Internal do
+  @moduledoc false
 
-      # We must `use` this in the private module to ensure that
-      # its docs are available at compile time to other modules
-      use DelegateWithDocs
+  # We must `use` this in the private module to ensure that
+  # its docs are available at compile time to other modules
+  use DelegateWithDocs
 
-      @doc "Describe the function"
-      @spec my_func(any, any) :: no_return
-      def my_func(arg1, arg2) do
-        # ...
-      end
-    end
+  @doc "Describe the function"
+  @spec my_func(any, any) :: no_return
+  def my_func(arg1, arg2) do
+    # ...
+  end
+end
+```
 
 You could do this with `Kernel.defdelegate/2`, but the documentation would
 be lost. You'd either have to duplicate the documentation in your public
@@ -57,15 +59,19 @@ It usually makes more sense to keep the documentation for a function
 co-located with the function that it documents. `DelegateWithDocs` allows
 you to do that.
 
-    defmodule MyModule do
-      use DelegateWithDocs
+```elixir
+defmodule MyModule do
+  use DelegateWithDocs
 
-      # The docs from MyModule.Internal.my_func/2 will be copied
-      # over and will display as the docs for this delegated function.
-      defdelegate my_func(arg1, arg2), to: MyModule.Internal
-    end
+  # The docs from MyModule.Internal.my_func/2 will be copied
+  # over and will display as the docs for this delegated function.
+  defdelegate my_func(arg1, arg2), to: MyModule.Internal
+end
+```
 
 You can also rename the function using the regular `Kernel.defdelegate/2`
 option:
 
-    defdelegate better_name(arg1, arg2), to: MyModule.Internal, as: :my_func
+```elixir
+defdelegate better_name(arg1, arg2), to: MyModule.Internal, as: :my_func
+```
