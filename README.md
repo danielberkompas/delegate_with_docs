@@ -3,8 +3,9 @@
 Delegate to functions on other modules, including their docs. 
 
 `Kernel.defdelegate/2` will only delegate the function, referencing the other
-module's documentation. This is fine when the other module is public, but not
-if it is excluded from documentation with `@moduledoc false`.
+module's documentation, "See OtherModule.func/1". This is fine when the other
+module is public, but not if it is excluded from documentation with
+`@moduledoc false`.
 
 ## Installation
 
