@@ -39,7 +39,7 @@ defmodule DelegateWithDocs.MixProject do
 
   defp docs do
     [
-      main: "README",
+      main: "readme",
       extras: ["README.md"]
     ]
   end
