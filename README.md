@@ -1,5 +1,8 @@
 # DelegateWithDocs
 
+[![Hex.pm](https://img.shields.io/hexpm/v/delegate_with_docs.svg)](https://hex.pm/packages/delegate_with_docs)
+[![Build Status](https://travis-ci.org/danielberkompas/delegate_with_docs.svg?branch=master)](https://travis-ci.org/danielberkompas/delegate_with_docs)
+
 Delegate to functions on other modules, including their docs. 
 
 `Kernel.defdelegate/2` will only delegate the function, referencing the other
